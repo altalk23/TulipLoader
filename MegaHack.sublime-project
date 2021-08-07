@@ -33,6 +33,18 @@
 					"shell_cmd": "make -j4 MegaHack",
 				},
 				{
+					"name": "MHListLayer.o",
+					"shell_cmd": "make -j4 MHListLayer.o",
+				},
+				{
+					"name": "MHListLayer.i",
+					"shell_cmd": "make -j4 MHListLayer.i",
+				},
+				{
+					"name": "MHListLayer.s",
+					"shell_cmd": "make -j4 MHListLayer.s",
+				},
+				{
 					"name": "MHManager.o",
 					"shell_cmd": "make -j4 MHManager.o",
 				},

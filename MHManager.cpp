@@ -4,14 +4,15 @@
 
 MHManager* MHManager::sharedManager() {
     if (!MHManager::g_sharedManager) {
-        auto pRet = MHManager::g_sharedManager = new MHManager();
-        pRet->loadConfig();
-        pRet->refresh();
+        auto ret = MHManager::g_sharedManager = new MHManager();
+        ret->loadConfig();
+        ret->refresh();
     }
     return MHManager::g_sharedManager;
 }
 
 void MHManager::callback(std::string path) {
+    std::cout << path << std::endl;
     auto vec = loadDylib(path.c_str());
     for (auto& i : vec) {
         ModUUID uuid = createModUUID(i);

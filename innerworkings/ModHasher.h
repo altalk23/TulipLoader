@@ -1,3 +1,4 @@
+#pragma once
 #include <Cacao.hpp>
 
 typedef struct {
