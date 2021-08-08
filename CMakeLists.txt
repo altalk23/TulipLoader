@@ -21,7 +21,7 @@ include_directories(
 add_subdirectory(Cacao)
 
 add_library(${PROJECT_NAME} 
-	SHARED main.cpp MHManager.cpp MHModLayer.cpp MHModCell.cpp MHListLayer.cpp innerworkings/filestuff.m
+	SHARED main.cpp MHManager.cpp MHInterface.cpp MHModLayer.cpp MHModCell.cpp MHListLayer.cpp innerworkings/filestuff.m
 )
 target_link_directories(${PROJECT_NAME} 
 	PRIVATE Cacao

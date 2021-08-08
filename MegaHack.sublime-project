@@ -33,6 +33,18 @@
 					"shell_cmd": "make -j4 MegaHack",
 				},
 				{
+					"name": "MHInterface.o",
+					"shell_cmd": "make -j4 MHInterface.o",
+				},
+				{
+					"name": "MHInterface.i",
+					"shell_cmd": "make -j4 MHInterface.i",
+				},
+				{
+					"name": "MHInterface.s",
+					"shell_cmd": "make -j4 MHInterface.s",
+				},
+				{
 					"name": "MHListLayer.o",
 					"shell_cmd": "make -j4 MHListLayer.o",
 				},
@@ -57,16 +69,40 @@
 					"shell_cmd": "make -j4 MHManager.s",
 				},
 				{
+					"name": "MHModCell.o",
+					"shell_cmd": "make -j4 MHModCell.o",
+				},
+				{
+					"name": "MHModCell.i",
+					"shell_cmd": "make -j4 MHModCell.i",
+				},
+				{
+					"name": "MHModCell.s",
+					"shell_cmd": "make -j4 MHModCell.s",
+				},
+				{
+					"name": "MHModLayer.o",
+					"shell_cmd": "make -j4 MHModLayer.o"
+				},
+				{
+					"name": "MHModLayer.i",
+					"shell_cmd": "make -j4 MHModLayer.i"
+				},
+				{
+					"name": "MHModLayer.s",
+					"shell_cmd": "make -j4 MHModLayer.s"
+				},
+				{
 					"name": "innerworkings/filestuff.o",
-					"shell_cmd": "make -j4 innerworkings/filestuff.o",
+					"shell_cmd": "make -j4 innerworkings/filestuff.o"
 				},
 				{
 					"name": "innerworkings/filestuff.i",
-					"shell_cmd": "make -j4 innerworkings/filestuff.i",
+					"shell_cmd": "make -j4 innerworkings/filestuff.i"
 				},
 				{
 					"name": "innerworkings/filestuff.s",
-					"shell_cmd": "make -j4 innerworkings/filestuff.s",
+					"shell_cmd": "make -j4 innerworkings/filestuff.s"
 				},
 				{
 					"name": "main.o",

@@ -22,6 +22,15 @@ void MHManager::callback(std::string path) {
     }
 }
 
+bool MHManager::modExists(ModUUID uuid) {
+    return m_mods.find(uuid) != m_mods.end();
+}
+
+void MHManager::registerMod(ModUUID uuid, ModContainer* mod) {
+    m_mods[uuid] = mod;
+}
+
+
 void MHManager::loadConfig() {
     m_searchPaths.push_back(std::string(getenv("HOME")) + std::string("/Documents/examplemods"));
     // TODO: actually do this

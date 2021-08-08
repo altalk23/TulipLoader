@@ -12,6 +12,9 @@ class MHManager {
 	void loadConfig();
 	void callback(std::string path);
 
+	bool modExists(ModUUID uuid);
+	void registerMod(ModUUID uuid, ModContainer* mod);
+
 	static inline MHManager* g_sharedManager = 0;
 	std::map<ModUUID, ModContainer*, ModComparer> m_mods;
 	std::vector<std::string> m_searchPaths;
