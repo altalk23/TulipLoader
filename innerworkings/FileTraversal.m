@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#include "filestuff.h"
+#include "FileTraversal.h"
 
 #include <mach-o/loader.h>
 #include <mach/machine.h>

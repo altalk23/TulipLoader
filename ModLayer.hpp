@@ -1,19 +1,26 @@
 #pragma once
 #include <Cacao.hpp>
+#include "Manager.hpp"
+#include "ModInfo.hpp"
+#include "ListLayer.hpp"
 
-class MHModLayer : public FLAlertLayer {
+using cocos2d::SEL_MenuHandler;
+
+class TLModLayer : public GJDropDownLayer {
 public:
     int m_page;
     CCMenuItemSpriteExtra* m_prevArrow;
     CCMenuItemSpriteExtra* m_nextArrow;
+    cocos2d::CCLabelBMFont* m_pageLabel;
+    cocos2d::CCArray* m_mods;
 
-    MHModLayer();
-    static MHModLayer* create();
-    virtual void keyBackClicked();
-    bool init();
+    static TLModLayer* create();
+    virtual bool init();
+    virtual void customSetup();
+    virtual ~TLModLayer();
+
     void onNextPage(cocos2d::CCObject*);
     void onPrevPage(cocos2d::CCObject*);
-    void onClose(cocos2d::CCObject*);
     void loadPage(int page);
     void setupModBrowser(cocos2d::CCArray* data);
     void setupPageInfo(int total, int itemBegin, int itemCount);

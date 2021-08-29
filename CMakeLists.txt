@@ -1,38 +1,52 @@
-set(SDK_LOCATION $ENV{CACAO_SDK_LOCATION}) # pls work pls work
+set(SDK_LOCATION $ENV{CACAO_SDK_LOCATION}) # uwu
 
 cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
-project(MegaHack VERSION 0.1.0 LANGUAGES C CXX)
+project(TulipLoader VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated -std=c++17 -DCC_TARGET_OS_MAC -mmacosx-version-min=10.7 -fms-extensions -Xlinker --no-demangle")
 set(CMAKE_OSX_SYSROOT ${SDK_LOCATION})
+set(CMAKE_BUILD_TYPE RelWithDebInfo)
+
 
 include_directories(
-	Cacao/
-	Cacao/include
-	Cacao/include/cocos2dx
-	Cacao/include/cocos2dx/include
-	Cacao/include/cocos2dx/kazmath/include
-	Cacao/include/cocos2dx/platform/mac
-	Cacao/include/cocos2dx/platform/third_party/mac
-	Cacao/include/cocos2dx/platform/third_party/mac/OGLES
-	Cacao/include/cocos2dext
-	Cacao/include/cocos2dx/custom/Sprites/CCMenuItemSpriteExtra
+    Cacao/
+    Cacao/include
+    Cacao/include/cocos2dx
+    Cacao/include/cocos2dx/include
+    Cacao/include/cocos2dx/kazmath/include
+    Cacao/include/cocos2dx/platform/mac
+    Cacao/include/cocos2dx/platform/third_party/mac
+    Cacao/include/cocos2dx/platform/third_party/mac/OGLES
+    Cacao/include/cocos2dext
+    Cacao/include/cocos2dx/custom/Sprites/CCMenuItemSpriteExtra
 )
 
 add_subdirectory(Cacao)
 
-add_library(${PROJECT_NAME} 
-	SHARED main.cpp MHManager.cpp MHInterface.cpp MHModLayer.cpp MHModCell.cpp MHListLayer.cpp innerworkings/filestuff.m
+add_library(${PROJECT_NAME} SHARED 
+    Main.cpp 
+    Manager.cpp 
+    Interface.cpp 
+    ModLayer.cpp 
+    ModCell.cpp 
+    ListLayer.cpp 
+    innerworkings/FileTraversal.m
+    ConfigLayer/ConfigOverlay.cpp 
+    ConfigLayer/ConfigManager.cpp 
+    ConfigLayer/ConfigCategory.cpp 
+    ConfigLayer/ExtConfigCategory.cpp 
+    ConfigLayer/Item/ConfigBackdrop.cpp 
+    ConfigLayer/Item/ConfigToggle.cpp 
 )
 target_link_directories(${PROJECT_NAME} 
-	PRIVATE Cacao
+    PRIVATE Cacao
 )
 target_link_libraries(${PROJECT_NAME} 
-	Cacao
-	"-framework Foundation"
+    Cacao
+    "-framework Foundation"
 )
 
 add_custom_command(
-	TARGET  ${PROJECT_NAME}
+    TARGET  ${PROJECT_NAME}
     COMMAND sudo osxinj \"Geometry Dash\" *.dylib || true
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
     COMMENT "Injecting"

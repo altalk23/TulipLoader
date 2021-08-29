@@ -1,0 +1,208 @@
+{
+    "build_systems":
+    [
+        {
+            "file_regex": "(.+[^:]):(\\d+):(\\d+): (?:fatal )?((?:error|warning): .+)$",
+            "name": "TulipLoader (OSX)",
+            "shell_cmd": "make -j4",
+            "syntax": "Packages/CMakeBuilder/Syntax/Make.sublime-syntax",
+            "variants":
+            [
+                {
+                    "name": "clean",
+                    "shell_cmd": "make -j4 clean",
+                },
+                {
+                    "name": "rebuild_cache",
+                    "shell_cmd": "make -j4 rebuild_cache",
+                },
+                {
+                    "name": "Cackit",
+                    "shell_cmd": "make -j4 Cackit",
+                },
+                {
+                    "name": "Cacao",
+                    "shell_cmd": "make -j4 Cacao",
+                },
+                {
+                    "name": "GDML",
+                    "shell_cmd": "make -j4 GDML",
+                },
+                {
+                    "name": "TulipLoader",
+                    "shell_cmd": "make -j4 TulipLoader",
+                },
+                {
+                    "name": "ConfigLayer/ConfigCategory.o",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigCategory.o",
+                },
+                {
+                    "name": "ConfigLayer/ConfigCategory.i",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigCategory.i",
+                },
+                {
+                    "name": "ConfigLayer/ConfigCategory.s",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigCategory.s",
+                },
+                {
+                    "name": "ConfigLayer/ConfigManager.o",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigManager.o",
+                },
+                {
+                    "name": "ConfigLayer/ConfigManager.i",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigManager.i",
+                },
+                {
+                    "name": "ConfigLayer/ConfigManager.s",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigManager.s",
+                },
+                {
+                    "name": "ConfigLayer/ConfigOverlay.o",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigOverlay.o",
+                },
+                {
+                    "name": "ConfigLayer/ConfigOverlay.i",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigOverlay.i",
+                },
+                {
+                    "name": "ConfigLayer/ConfigOverlay.s",
+                    "shell_cmd": "make -j4 ConfigLayer/ConfigOverlay.s",
+                },
+                {
+                    "name": "ConfigLayer/ExtConfigCategory.o",
+                    "shell_cmd": "make -j4 ConfigLayer/ExtConfigCategory.o",
+                },
+                {
+                    "name": "ConfigLayer/ExtConfigCategory.i",
+                    "shell_cmd": "make -j4 ConfigLayer/ExtConfigCategory.i",
+                },
+                {
+                    "name": "ConfigLayer/ExtConfigCategory.s",
+                    "shell_cmd": "make -j4 ConfigLayer/ExtConfigCategory.s",
+                },
+                {
+                    "name": "ConfigLayer/Item/ConfigBackdrop.o",
+                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigBackdrop.o",
+                },
+                {
+                    "name": "ConfigLayer/Item/ConfigBackdrop.i",
+                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigBackdrop.i",
+                },
+                {
+                    "name": "ConfigLayer/Item/ConfigBackdrop.s",
+                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigBackdrop.s",
+                },
+                {
+                    "name": "ConfigLayer/Item/ConfigToggle.o",
+                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigToggle.o",
+                },
+                {
+                    "name": "ConfigLayer/Item/ConfigToggle.i",
+                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigToggle.i",
+                },
+                {
+                    "name": "ConfigLayer/Item/ConfigToggle.s",
+                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigToggle.s",
+                },
+                {
+                    "name": "Interface.o",
+                    "shell_cmd": "make -j4 Interface.o",
+                },
+                {
+                    "name": "Interface.i",
+                    "shell_cmd": "make -j4 Interface.i",
+                },
+                {
+                    "name": "Interface.s",
+                    "shell_cmd": "make -j4 Interface.s",
+                },
+                {
+					"name": "ListLayer.o",
+					"shell_cmd": "make -j4 ListLayer.o",
+				},
+                {
+					"name": "ListLayer.i",
+					"shell_cmd": "make -j4 ListLayer.i",
+				},
+                {
+					"name": "ListLayer.s",
+					"shell_cmd": "make -j4 ListLayer.s",
+				},
+                {
+					"name": "Main.o",
+					"shell_cmd": "make -j4 Main.o",
+				},
+                {
+					"name": "Main.i",
+					"shell_cmd": "make -j4 Main.i",
+				},
+                {
+					"name": "Main.s",
+					"shell_cmd": "make -j4 Main.s",
+				},
+                {
+					"name": "Manager.o",
+					"shell_cmd": "make -j4 Manager.o",
+				},
+                {
+					"name": "Manager.i",
+					"shell_cmd": "make -j4 Manager.i",
+				},
+                {
+					"name": "Manager.s",
+					"shell_cmd": "make -j4 Manager.s",
+				},
+                {
+					"name": "ModCell.o",
+					"shell_cmd": "make -j4 ModCell.o",
+				},
+                {
+					"name": "ModCell.i",
+					"shell_cmd": "make -j4 ModCell.i",
+				},
+                {
+					"name": "ModCell.s",
+					"shell_cmd": "make -j4 ModCell.s",
+				},
+                {
+					"name": "ModLayer.o",
+					"shell_cmd": "make -j4 ModLayer.o",
+				},
+                {
+					"name": "ModLayer.i",
+					"shell_cmd": "make -j4 ModLayer.i",
+				},
+                {
+					"name": "ModLayer.s",
+					"shell_cmd": "make -j4 ModLayer.s",
+				},
+                {
+					"name": "innerworkings/FileTraversal.o",
+					"shell_cmd": "make -j4 innerworkings/FileTraversal.o"
+				},
+                {
+					"name": "innerworkings/FileTraversal.i",
+					"shell_cmd": "make -j4 innerworkings/FileTraversal.i"
+				},
+                {
+					"name": "innerworkings/FileTraversal.s",
+					"shell_cmd": "make -j4 innerworkings/FileTraversal.s"
+				},
+            ],
+            "working_dir": "${project_path}/build",
+        },
+    ],
+    "folders":
+    [
+        {
+            "path": ".",
+        }
+    ],
+    "settings":
+    {
+        "cmake":
+        {
+            "build_folder": "${project_path}/build",
+        },
+    },
+}
