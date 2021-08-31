@@ -16,7 +16,7 @@ void TLExtConfigRadio::setDefaultValue(int value) {
     m_defaultValue = value;
 }
 
-TLExtConfigToggle* TLExtConfigCategory::addToggle(std::string label, SEL_MenuHandler onSelect) {
+TLExtConfigToggle* TLExtConfigCategory::addToggle(std::string label, toggleHandler onSelect) {
     auto item = new TLExtConfigToggle();
     item->m_label = label;
     item->m_onSelect = onSelect;
@@ -24,7 +24,7 @@ TLExtConfigToggle* TLExtConfigCategory::addToggle(std::string label, SEL_MenuHan
     return item;
 }
 
-TLExtConfigButton* TLExtConfigCategory::addButton(std::string label, SEL_MenuHandler onClick) {
+TLExtConfigButton* TLExtConfigCategory::addButton(std::string label, buttonHandler onClick) {
     auto item = new TLExtConfigButton();
     item->m_label = label;
     item->m_onClick = onClick;
@@ -32,7 +32,7 @@ TLExtConfigButton* TLExtConfigCategory::addButton(std::string label, SEL_MenuHan
     return item;
 }
 
-TLExtConfigTextbox* TLExtConfigCategory::addTextbox(std::string label, SEL_MenuHandler onConfirm) {
+TLExtConfigTextbox* TLExtConfigCategory::addTextbox(std::string label, textboxHandler onConfirm) {
     auto item = new TLExtConfigTextbox();
     item->m_label = label;
     item->m_onConfirm = onConfirm;
@@ -40,10 +40,9 @@ TLExtConfigTextbox* TLExtConfigCategory::addTextbox(std::string label, SEL_MenuH
     return item;
 }
 
-TLExtConfigRadio* TLExtConfigCategory::addRadio(std::string label, std::vector<std::string> options, SEL_RadioHandler onSelect) {
+TLExtConfigRadio* TLExtConfigCategory::addRadio(std::vector<std::string> labels, radioHandler onSelect) {
     auto item = new TLExtConfigRadio();
-    item->m_label = label;
-    item->m_options = options;
+    item->m_labels = labels;
     item->m_onSelect = onSelect;
     m_items.push_back(item);
     return item;

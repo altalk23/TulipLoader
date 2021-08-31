@@ -1,8 +1,10 @@
 #pragma once
 #include <Cacao.hpp>
 
-using cocos2d::SEL_MenuHandler;
-typedef void (cocos2d::CCObject::* SEL_RadioHandler)(cocos2d::CCObject*, int);
+typedef void (*toggleHandler)(bool);
+typedef void (*buttonHandler)();
+typedef void (*textboxHandler)(std::string);
+typedef void (*radioHandler)(int);
 
 class TLExtConfigBase {
 public:
@@ -12,27 +14,27 @@ public:
 
 class TLExtConfigToggle : public TLExtConfigBase {
 public:
-    SEL_MenuHandler m_onSelect; 
+    toggleHandler m_onSelect; 
     bool m_defaultValue;
     virtual void setDefaultValue(bool value);
 };
 
 class TLExtConfigButton : public TLExtConfigBase {
 public:
-    SEL_MenuHandler m_onClick;
+    buttonHandler m_onClick;
 };
 
 class TLExtConfigTextbox : public TLExtConfigBase {
 public:
-    SEL_MenuHandler m_onConfirm;
+    textboxHandler m_onConfirm;
     std::string m_defaultValue;
     virtual void setDefaultValue(std::string value);
 };
 
 class TLExtConfigRadio : public TLExtConfigBase {
 public:
-    std::vector<std::string> m_options; 
-    SEL_RadioHandler m_onSelect;
+    std::vector<std::string> m_labels; 
+    radioHandler m_onSelect;
     int m_defaultValue;
     virtual void setDefaultValue(int value);
 };
@@ -43,10 +45,10 @@ class TLExtConfigCategory {
 public:
     std::vector<TLExtConfigBase*> m_items;
 
-    virtual TLExtConfigToggle* addToggle(std::string label, SEL_MenuHandler onSelect);
-    virtual TLExtConfigButton* addButton(std::string label, SEL_MenuHandler onClick);
-    virtual TLExtConfigTextbox* addTextbox(std::string label, SEL_MenuHandler onConfirm);
-    virtual TLExtConfigRadio* addRadio(std::string label, std::vector<std::string> options, SEL_RadioHandler onSelect);
+    virtual TLExtConfigToggle* addToggle(std::string label, toggleHandler onSelect);
+    virtual TLExtConfigButton* addButton(std::string label, buttonHandler onClick);
+    virtual TLExtConfigTextbox* addTextbox(std::string label, textboxHandler onConfirm);
+    virtual TLExtConfigRadio* addRadio(std::vector<std::string> labels, radioHandler onSelect);
     virtual TLExtConfigLabel* addLabel(std::string label);
 
 };

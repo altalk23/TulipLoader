@@ -3,6 +3,9 @@
 using cocos2d::SEL_MenuHandler;
 
 TLConfigOverlay::TLConfigOverlay() : FLAlertLayer() {
+    // std::cout << this << std::endl;
+    std::cout << *(void**)this << std::endl;
+    std::cout << Cacao::typeinfoNameFor(this)<< std::endl;
     m_controlConnected = -1;
     m_joystickConnected = -1;
     m_ZOrder = 0;
@@ -49,16 +52,29 @@ bool TLConfigOverlay::init() {
         addCategory(name, category);
     }
 
+    if (PL != nullptr) PL->pauseGame(true);
+
     return true;
 }
 
 void TLConfigOverlay::onClose(cocos2d::CCObject*) {
+    std::cout << "overlay onClose" << std::endl;
     setKeypadEnabled(false);
     setTouchEnabled(false);
     setMouseEnabled(false);
 
     removeFromParentAndCleanup(true);
+    cocos2d::CCDirector::sharedDirector()->getTouchDispatcher()->decrementForcePrio(2);
     g_visible = false;
+
+    if (PL != nullptr) {
+        for (auto& node : Cacao::ccToVec<CCNode*>(PL->getParent()->getChildren())) {
+            std::cout<< Cacao::typeinfoNameFor(node) << std::endl;
+            if (!strcmp(Cacao::typeinfoNameFor(node), "10PauseLayer")) node->removeMeAndCleanup();
+            
+        }
+        PL->resume();
+    }
 }
 
 void TLConfigOverlay::selectThing(cocos2d::CCObject*) {
@@ -66,7 +82,7 @@ void TLConfigOverlay::selectThing(cocos2d::CCObject*) {
 }
  
 void TLConfigOverlay::keyBackClicked() {
-    onClose(nullptr);
+    // onClose(nullptr);
 }
 
 void TLConfigOverlay::addCategory(std::string name, TLExtConfigCategory* extCategory) {

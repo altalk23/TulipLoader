@@ -1,31 +1,37 @@
 #define CAC_PROJ_NAME "Megahack uwu"
 #include <CacKit>
 #include <iostream>
-// #include "innerworkings/MacDylib.h"
-// #include "Manager.h"
 #include "Manager.hpp"
 #include "ListLayer.hpp"
 #include "ModLayer.hpp"
 #include "ConfigLayer/ConfigOverlay.hpp"
 
-// class TLDropdown : public GJDropDownLayer {
-// public:
-//     CAC_CREATE(TLDropdown);
-
-//     bool init() {
-//         CAC_TYPEINFO(0x6754b0); // don't question it
-//         if (GJDropDownLayer::init("Mods", 220.0)) {
-//             std::cout << "size is " << TLManager::sharedManager()->m_mods.size() << "\n";
-//             for (auto& i : TLManager::sharedManager()->m_mods) {
-//                 std::cout << "name is " << i.second->getName() << "\n";
-//             }
-//         }
-//         return true;
-//     }
-// }; 
-
-
-
+class $redirect(CCTextInputNode) {
+public:
+    void onClickTrackNode(bool state) override {
+        auto configTextbox = reinterpret_cast<TLConfigTextbox*>(getUserObject());
+        if (configTextbox != nullptr && !strcmp(Cacao::typeinfoNameFor(configTextbox), "15TLConfigTextbox")) {
+            if (state) configTextbox->onSelect(this);
+            else configTextbox->onDeselect(this);
+        }
+        return $CCTextInputNode::onClickTrackNode(state);
+    }
+    bool onTextFieldInsertText(cocos2d::CCTextFieldTTF* p0, char const* p1, int p2) override {
+        if ((int)*p1 == 27) {
+            onClickTrackNode(false);
+            return true;
+        }
+        else if ((int)*p1 == 13) {
+            auto configTextbox = reinterpret_cast<TLConfigTextbox*>(getUserObject());
+            if (configTextbox != nullptr && !strcmp(Cacao::typeinfoNameFor(configTextbox), "15TLConfigTextbox")) {
+                configTextbox->callback(this);
+            }
+            onClickTrackNode(false);
+            return true;
+        }
+        return $CCTextInputNode::onTextFieldInsertText(p0, p1, p2);
+    }
+} CCTextInputNodeHook;
 
 class $redirect(MenuLayer) {
 public:
@@ -40,11 +46,21 @@ public:
     }
 } MenuLayerHook;
 
+TLConfigOverlay* g_overlay;
+
 void dispatchKeyboardMSGHook(cocos2d::CCKeyboardDispatcher* self, int code, bool press) {
     if (code == 9 && press) {
-        if (!TLConfigOverlay::isActive() && 
-            !cocos2d::CCDirector::sharedDirector()->getIsTransitioning()) 
-                TLConfigOverlay::create()->show();
+        std::cout << "tab press" << std::endl;
+        if (!TLConfigOverlay::isActive() && !cocos2d::CCDirector::sharedDirector()->getIsTransitioning()) {
+            std::cout << "create overlay" << std::endl;
+            g_overlay = TLConfigOverlay::create();
+            g_overlay->show();
+        }
+        else if (TLConfigOverlay::isActive()) {
+            std::cout << "destroy overlay" << std::endl;
+            g_overlay->onClose(nullptr);
+            g_overlay = nullptr;
+        }
     }
     if (code == 65 && press) {
         auto scene = cocos2d::CCDirector::sharedDirector()->getRunningScene();

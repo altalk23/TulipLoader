@@ -4,11 +4,11 @@ cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 project(TulipLoader VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated -std=c++17 -DCC_TARGET_OS_MAC -mmacosx-version-min=10.7 -fms-extensions -Xlinker --no-demangle")
 set(CMAKE_OSX_SYSROOT ${SDK_LOCATION})
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
+set(CMAKE_BUILD_TYPE RelWithDebugInfo)
 
 
 include_directories(
-    Cacao/
+    Cacao/ 
     Cacao/include
     Cacao/include/cocos2dx
     Cacao/include/cocos2dx/include
@@ -36,6 +36,9 @@ add_library(${PROJECT_NAME} SHARED
     ConfigLayer/ExtConfigCategory.cpp 
     ConfigLayer/Item/ConfigBackdrop.cpp 
     ConfigLayer/Item/ConfigToggle.cpp 
+    ConfigLayer/Item/ConfigButton.cpp 
+    ConfigLayer/Item/ConfigTextbox.cpp 
+    ConfigLayer/Item/ConfigRadio.cpp 
 )
 target_link_directories(${PROJECT_NAME} 
     PRIVATE Cacao
