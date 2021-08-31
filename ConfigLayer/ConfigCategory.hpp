@@ -3,6 +3,7 @@
 
 #include "ConfigOverlay.hpp"
 #include "ExtConfigCategory.hpp"
+#include "Item/ConfigConstant.hpp"
 
 #include "Item/ConfigBackdrop.hpp"
 #include "Item/ConfigToggle.hpp"

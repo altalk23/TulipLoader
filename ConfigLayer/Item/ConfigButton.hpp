@@ -2,7 +2,9 @@
 #include <Cacao.hpp>
 
 #include "ConfigPalette.hpp"
+#include "ConfigConstant.hpp"
 
+using namespace TLConfigConstant;
 using cocos2d::SEL_MenuHandler;
 typedef void (*buttonHandler)();
 

@@ -22,8 +22,8 @@ TLConfigToggle* TLConfigCategory::addToggle(std::string label, toggleHandler onS
     auto toggle = TLConfigToggle::create(label, onSelect);
     toggle->retain();
 
-    toggle->m_toggle->setAnchorPoint(cocos2d::CCPoint(0.5, 0.5));
-    toggle->m_toggle->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 5));
+    toggle->m_toggle->setAnchorPoint(cocos2d::CCPoint(0.5, 0));
+    toggle->m_toggle->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 2*TLConfigConstant::nodePadding));
 
     
     m_parent->m_buttonMenu->addChild(toggle->m_toggle);
@@ -36,8 +36,8 @@ TLConfigButton* TLConfigCategory::addButton(std::string label, buttonHandler onC
     auto button = TLConfigButton::create(label, onClick);
     button->retain();
 
-    button->m_button->setAnchorPoint(cocos2d::CCPoint(0.5, 0.5));
-    button->m_button->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 5));
+    button->m_button->setAnchorPoint(cocos2d::CCPoint(0.5, 0));
+    button->m_button->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 2*TLConfigConstant::nodePadding));
 
     
     m_parent->m_buttonMenu->addChild(button->m_button);
@@ -50,8 +50,8 @@ TLConfigTextbox* TLConfigCategory::addTextbox(std::string label, textboxHandler 
     auto textbox = TLConfigTextbox::create(label, onConfirm);
     textbox->retain();
 
-    textbox->setAnchorPoint(cocos2d::CCPoint(0.5, 0.5));
-    textbox->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 5));
+    textbox->setAnchorPoint(cocos2d::CCPoint(0.5, 0));
+    textbox->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 2*TLConfigConstant::nodePadding));
 
     
     m_parent->m_mainLayer->addChild(textbox, 2);
@@ -65,8 +65,8 @@ TLConfigRadio* TLConfigCategory::addRadio(std::vector<std::string> labels, radio
     radio->retain();
 
     for (auto option : radio->m_options) {
-        option->setAnchorPoint(cocos2d::CCPoint(0.5, 0.5));
-        option->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 5 - option->getTag() * 8));
+        option->setAnchorPoint(cocos2d::CCPoint(0.5, 0));
+        option->setPosition(cocos2d::CCPoint(getPositionX(), getPositionY() - m_backdrop->getContentSize().height - 2*TLConfigConstant::nodePadding - option->getTag() * TLConfigConstant::textHeight + 2));
         m_parent->m_buttonMenu->addChild(option);
     }
 

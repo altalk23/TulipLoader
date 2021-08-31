@@ -13,19 +13,21 @@ TLConfigBackdrop* TLConfigBackdrop::create(std::string label) {
 bool TLConfigBackdrop::init(std::string label) {
     m_text = cocos2d::CCLabelBMFont::create(label.c_str(), "chatFont.fnt");
     m_text->setAnchorPoint(cocos2d::CCPoint(0.5, 1));
-    m_text->setScale(0.5);
-    m_text->setPosition(cocos2d::CCPoint(0.0, -5.0));
-    m_text->limitLabelWidth(70.0, 0.5, 0.0);
-    m_text->setColor(cocos2d::ccc3(255, 255, 255));
+    m_text->setScale(titleTextScale);
+    m_text->setContentSize(titleTextSize);
+    m_text->setPosition(cocos2d::CCPoint(0, -nodePadding));
+    m_text->limitLabelWidth(horizontalSpriteLength, titleTextScale, 0.0);
+    m_text->setColor(TLConfigPalette::textLight);
     addChild(m_text, 2);
 
     m_backdrop = cocos2d::extension::CCScale9Sprite::create("square02b_small.png");
-    m_backdrop->setContentSize(cocos2d::CCSizeMake(80.0, m_text->getContentSize().height * m_text->getScaleY() + 10.0));
+    m_backdrop->setContentSize(backdropSize);
     m_backdrop->setAnchorPoint(cocos2d::CCPoint(0.5, 1));
     m_backdrop->setColor(cocos2d::ccc3(0, 0, 0));
     m_backdrop->setOpacity(255);
     addChild(m_backdrop);
 
+    setContentSize(m_backdrop->getContentSize());
     return true;
 }
 
@@ -33,8 +35,5 @@ void TLConfigBackdrop::increaseBackdrop(float height) {
     auto size = m_backdrop->getContentSize();
     size.height += height;
     m_backdrop->setContentSize(size);
-}
-
-cocos2d::CCSize TLConfigBackdrop::getContentSize() {
-    return m_backdrop->getContentSize();
+    setContentSize(m_backdrop->getContentSize());
 }

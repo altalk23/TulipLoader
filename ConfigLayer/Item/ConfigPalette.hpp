@@ -13,4 +13,8 @@ namespace TLConfigPalette {
     static cocos2d::_ccColor3B const text = cocos2d::ccc3(180, 180, 180);
 
     static cocos2d::_ccColor3B const textDark = cocos2d::ccc3(120, 120, 120);
+
+    static inline cocos2d::CCTintTo* createTint(cocos2d::_ccColor3B color, float duration) {
+        return cocos2d::CCTintTo::create(duration, color.r, color.g, color.b);
+    }
 }

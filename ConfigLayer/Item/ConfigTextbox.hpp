@@ -2,17 +2,11 @@
 #include <Cacao.hpp>
 
 #include "ConfigPalette.hpp"
+#include "ConfigConstant.hpp"
 
+using namespace TLConfigConstant;
 using cocos2d::SEL_MenuHandler;
 typedef void (*textboxHandler)(std::string);
-
-// class TLTextInputNode : public CCTextInputNode {
-// public:
-//     static TLTextInputNode* create(float, float, char const*, char const*, int, char const*);
-//     bool init(float, float, char const*, char const*, int, char const*);
-//     // bool onTextFieldInsertText(cocos2d::CCTextFieldTTF*, char const*, int);
-//     // void keyBackClicked();
-// };
 
 class TLConfigTextbox : public cocos2d::CCNode {
 public:
