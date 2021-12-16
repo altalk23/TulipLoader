@@ -1,5 +1,5 @@
 #pragma once
-#include <Cacao.hpp>
+#include <Cacao>
 
 typedef struct {
     char name[16];
@@ -8,7 +8,7 @@ typedef struct {
 
 inline ModUUID createModUUID(ModContainer* mc) {
     ModUUID u;
-    strncpy(u.name, mc->getName(), 16);
+    strncpy(u.name, mc->getName().c_str(), 16);
 
     for (auto& i : mc->getMods()) {
         u.hooksums += (i->getAddress() - getBase());
@@ -17,8 +17,7 @@ inline ModUUID createModUUID(ModContainer* mc) {
 }
 
 struct ModComparer { // why do i need this
-   bool operator() (const ModUUID& lhs, const ModUUID& rhs) const
-   {
-       return lhs.hooksums < rhs.hooksums;
-   }
+	bool operator() (const ModUUID& lhs, const ModUUID& rhs) const {
+		return lhs.hooksums < rhs.hooksums;
+	}
 };

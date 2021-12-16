@@ -17,105 +17,77 @@
                     "shell_cmd": "make -j4 rebuild_cache",
                 },
                 {
-                    "name": "Cackit",
-                    "shell_cmd": "make -j4 Cackit",
-                },
+					"name": "Gen",
+					"shell_cmd": "make -j4 Gen",
+				},
                 {
-                    "name": "Cacao",
-                    "shell_cmd": "make -j4 Cacao",
-                },
+					"name": "Inject",
+					"shell_cmd": "make -j4 Inject",
+				},
                 {
-                    "name": "GDML",
-                    "shell_cmd": "make -j4 GDML",
-                },
+					"name": "Cacao",
+					"shell_cmd": "make -j4 Cacao",
+				},
                 {
-                    "name": "TulipLoader",
-                    "shell_cmd": "make -j4 TulipLoader",
-                },
+					"name": "Core",
+					"shell_cmd": "make -j4 Core",
+				},
                 {
-                    "name": "ConfigLayer/ConfigCategory.o",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigCategory.o",
-                },
+					"name": "LilacHook",
+					"shell_cmd": "make -j4 LilacHook",
+				},
                 {
-                    "name": "ConfigLayer/ConfigCategory.i",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigCategory.i",
-                },
+					"name": "TulipLoader",
+					"shell_cmd": "make -j4 TulipLoader",
+				},
                 {
-                    "name": "ConfigLayer/ConfigCategory.s",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigCategory.s",
-                },
+					"name": "Config/ConfigCategory.o",
+					"shell_cmd": "make -j4 Config/ConfigCategory.o",
+				},
                 {
-                    "name": "ConfigLayer/ConfigManager.o",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigManager.o",
-                },
+					"name": "Config/ConfigCategory.i",
+					"shell_cmd": "make -j4 Config/ConfigCategory.i",
+				},
                 {
-                    "name": "ConfigLayer/ConfigManager.i",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigManager.i",
-                },
+					"name": "Config/ConfigCategory.s",
+					"shell_cmd": "make -j4 Config/ConfigCategory.s",
+				},
                 {
-                    "name": "ConfigLayer/ConfigManager.s",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigManager.s",
-                },
+					"name": "Config/ConfigManager.o",
+					"shell_cmd": "make -j4 Config/ConfigManager.o",
+				},
                 {
-                    "name": "ConfigLayer/ConfigOverlay.o",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigOverlay.o",
-                },
+					"name": "Config/ConfigManager.i",
+					"shell_cmd": "make -j4 Config/ConfigManager.i",
+				},
                 {
-                    "name": "ConfigLayer/ConfigOverlay.i",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigOverlay.i",
-                },
+					"name": "Config/ConfigManager.s",
+					"shell_cmd": "make -j4 Config/ConfigManager.s",
+				},
                 {
-                    "name": "ConfigLayer/ConfigOverlay.s",
-                    "shell_cmd": "make -j4 ConfigLayer/ConfigOverlay.s",
-                },
+					"name": "Inner/FileTraversal.o",
+					"shell_cmd": "make -j4 Inner/FileTraversal.o",
+				},
                 {
-                    "name": "ConfigLayer/ExtConfigCategory.o",
-                    "shell_cmd": "make -j4 ConfigLayer/ExtConfigCategory.o",
-                },
+					"name": "Inner/FileTraversal.i",
+					"shell_cmd": "make -j4 Inner/FileTraversal.i",
+				},
                 {
-                    "name": "ConfigLayer/ExtConfigCategory.i",
-                    "shell_cmd": "make -j4 ConfigLayer/ExtConfigCategory.i",
-                },
+					"name": "Inner/FileTraversal.s",
+					"shell_cmd": "make -j4 Inner/FileTraversal.s",
+				},
                 {
-                    "name": "ConfigLayer/ExtConfigCategory.s",
-                    "shell_cmd": "make -j4 ConfigLayer/ExtConfigCategory.s",
-                },
+					"name": "Interface.o",
+					"shell_cmd": "make -j4 Interface.o",
+				},
                 {
-                    "name": "ConfigLayer/Item/ConfigBackdrop.o",
-                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigBackdrop.o",
-                },
+					"name": "Interface.i",
+					"shell_cmd": "make -j4 Interface.i",
+				},
                 {
-                    "name": "ConfigLayer/Item/ConfigBackdrop.i",
-                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigBackdrop.i",
-                },
-                {
-                    "name": "ConfigLayer/Item/ConfigBackdrop.s",
-                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigBackdrop.s",
-                },
-                {
-                    "name": "ConfigLayer/Item/ConfigToggle.o",
-                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigToggle.o",
-                },
-                {
-                    "name": "ConfigLayer/Item/ConfigToggle.i",
-                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigToggle.i",
-                },
-                {
-                    "name": "ConfigLayer/Item/ConfigToggle.s",
-                    "shell_cmd": "make -j4 ConfigLayer/Item/ConfigToggle.s",
-                },
-                {
-                    "name": "Interface.o",
-                    "shell_cmd": "make -j4 Interface.o",
-                },
-                {
-                    "name": "Interface.i",
-                    "shell_cmd": "make -j4 Interface.i",
-                },
-                {
-                    "name": "Interface.s",
-                    "shell_cmd": "make -j4 Interface.s",
-                },
+					"name": "Interface.s",
+					"shell_cmd": "make -j4 Interface.s",
+				},
                 {
 					"name": "ListLayer.o",
 					"shell_cmd": "make -j4 ListLayer.o",
@@ -177,27 +149,99 @@
 					"shell_cmd": "make -j4 ModLayer.s",
 				},
                 {
-					"name": "innerworkings/FileTraversal.o",
-					"shell_cmd": "make -j4 innerworkings/FileTraversal.o"
+					"name": "Overlay/Item/Backdrop.o",
+					"shell_cmd": "make -j4 Overlay/Item/Backdrop.o",
 				},
                 {
-					"name": "innerworkings/FileTraversal.i",
-					"shell_cmd": "make -j4 innerworkings/FileTraversal.i"
+					"name": "Overlay/Item/Backdrop.i",
+					"shell_cmd": "make -j4 Overlay/Item/Backdrop.i",
 				},
                 {
-					"name": "innerworkings/FileTraversal.s",
-					"shell_cmd": "make -j4 innerworkings/FileTraversal.s"
+					"name": "Overlay/Item/Backdrop.s",
+					"shell_cmd": "make -j4 Overlay/Item/Backdrop.s",
 				},
-            ],
+                {
+					"name": "Overlay/Item/Button.o",
+					"shell_cmd": "make -j4 Overlay/Item/Button.o",
+				},
+                {
+					"name": "Overlay/Item/Button.i",
+					"shell_cmd": "make -j4 Overlay/Item/Button.i",
+				},
+                {
+					"name": "Overlay/Item/Button.s",
+					"shell_cmd": "make -j4 Overlay/Item/Button.s",
+				},
+                {
+					"name": "Overlay/Item/Category.o",
+					"shell_cmd": "make -j4 Overlay/Item/Category.o",
+				},
+                {
+					"name": "Overlay/Item/Category.i",
+					"shell_cmd": "make -j4 Overlay/Item/Category.i",
+				},
+                {
+					"name": "Overlay/Item/Category.s",
+					"shell_cmd": "make -j4 Overlay/Item/Category.s",
+				},
+                {
+					"name": "Overlay/Item/Radio.o",
+					"shell_cmd": "make -j4 Overlay/Item/Radio.o",
+				},
+                {
+					"name": "Overlay/Item/Radio.i",
+					"shell_cmd": "make -j4 Overlay/Item/Radio.i",
+				},
+                {
+					"name": "Overlay/Item/Radio.s",
+					"shell_cmd": "make -j4 Overlay/Item/Radio.s",
+				},
+                {
+					"name": "Overlay/Item/Textbox.o",
+					"shell_cmd": "make -j4 Overlay/Item/Textbox.o",
+				},
+                {
+					"name": "Overlay/Item/Textbox.i",
+					"shell_cmd": "make -j4 Overlay/Item/Textbox.i",
+				},
+                {
+					"name": "Overlay/Item/Textbox.s",
+					"shell_cmd": "make -j4 Overlay/Item/Textbox.s",
+				},
+                {
+					"name": "Overlay/Item/Toggle.o",
+					"shell_cmd": "make -j4 Overlay/Item/Toggle.o",
+				},
+                {
+					"name": "Overlay/Item/Toggle.i",
+					"shell_cmd": "make -j4 Overlay/Item/Toggle.i",
+				},
+                {
+					"name": "Overlay/Item/Toggle.s",
+					"shell_cmd": "make -j4 Overlay/Item/Toggle.s",
+				},
+                {
+					"name": "Overlay/OverlayLayer.o",
+					"shell_cmd": "make -j4 Overlay/OverlayLayer.o",
+				},
+                {
+					"name": "Overlay/OverlayLayer.i",
+					"shell_cmd": "make -j4 Overlay/OverlayLayer.i",
+				},
+                {
+					"name": "Overlay/OverlayLayer.s",
+					"shell_cmd": "make -j4 Overlay/OverlayLayer.s",
+				},
+			],
             "working_dir": "${project_path}/build",
         },
-    ],
+	],
     "folders":
     [
         {
             "path": ".",
         }
-    ],
+	],
     "settings":
     {
         "cmake":

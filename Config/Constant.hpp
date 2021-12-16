@@ -1,7 +1,7 @@
 #pragma once
-#include <Cacao.hpp>
+#include <Cacao>
 
-namespace TLConfigConstant {
+namespace TLConstant {
     static float const textVerticalPadding = 2.0;
     static float const textHorizontalPadding = 3.0;
     static float const nodePadding = 5.0;

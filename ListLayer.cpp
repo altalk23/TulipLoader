@@ -11,7 +11,6 @@ TLListLayer* TLListLayer::create(cocos2d::CCArray* data) {
 }
 
 bool TLListLayer::init(cocos2d::CCArray* data) {
-	CAC_TYPEINFO(0x639900);
 	return BoomListView::init(data, 220.0,356.0,0,(BoomListType)0x4);
 }
 

@@ -1,11 +1,8 @@
-#include "ConfigOverlay.hpp"
+#include "OverlayLayer.hpp"
 
 using cocos2d::SEL_MenuHandler;
 
-TLConfigOverlay::TLConfigOverlay() : FLAlertLayer() {
-    // std::cout << this << std::endl;
-    std::cout << *(void**)this << std::endl;
-    std::cout << Cacao::typeinfoNameFor(this)<< std::endl;
+TLOverlayLayer::TLOverlayLayer() : FLAlertLayer() {
     m_controlConnected = -1;
     m_joystickConnected = -1;
     m_ZOrder = 0;
@@ -13,11 +10,11 @@ TLConfigOverlay::TLConfigOverlay() : FLAlertLayer() {
 }
 
 
-TLConfigOverlay* TLConfigOverlay::create() {
+TLOverlayLayer* TLOverlayLayer::create() {
     if (g_visible) return NULL;
     g_visible = true;
 
-    auto ret = new TLConfigOverlay(); 
+    auto ret = new TLOverlayLayer(); 
     if (ret && ret->init()) {
         ret->autorelease();
         return ret;
@@ -26,12 +23,11 @@ TLConfigOverlay* TLConfigOverlay::create() {
     return NULL;
 }
 
-bool TLConfigOverlay::isActive() {
+bool TLOverlayLayer::isActive() {
     return g_visible;
 }
  
-bool TLConfigOverlay::init() {
-    CAC_TYPEINFO(0x65d870);
+bool TLOverlayLayer::init() {
     cocos2d::CCDirector::sharedDirector()->getTouchDispatcher()->incrementForcePrio(2);
     if (!cocos2d::CCLayerColor::initWithColor(cocos2d::ccc4(0,0,0,150))) return false;
 
@@ -57,8 +53,7 @@ bool TLConfigOverlay::init() {
     return true;
 }
 
-void TLConfigOverlay::onClose(cocos2d::CCObject*) {
-    std::cout << "overlay onClose" << std::endl;
+void TLOverlayLayer::onClose(cocos2d::CCObject*) {
     setKeypadEnabled(false);
     setTouchEnabled(false);
     setMouseEnabled(false);
@@ -69,30 +64,24 @@ void TLConfigOverlay::onClose(cocos2d::CCObject*) {
 
     if (PL != nullptr) {
         for (auto& node : Cacao::ccToVec<CCNode*>(PL->getParent()->getChildren())) {
-            std::cout<< Cacao::typeinfoNameFor(node) << std::endl;
             if (!strcmp(Cacao::typeinfoNameFor(node), "10PauseLayer")) node->removeMeAndCleanup();
-            
         }
         PL->resume();
     }
 }
 
-void TLConfigOverlay::selectThing(cocos2d::CCObject*) {
-    std::cout << "selectThing" << std::endl;
-}
- 
-void TLConfigOverlay::keyBackClicked() {
+void TLOverlayLayer::keyBackClicked() {
     // onClose(nullptr);
 }
 
-void TLConfigOverlay::addCategory(std::string name, TLExtConfigCategory* extCategory) {
-    auto category = TLConfigCategory::create(name, extCategory, this);
+void TLOverlayLayer::addCategory(std::string name, TLCategoryConfig* extCategory) {
+    auto category = TLOverlayCategory::create(name, extCategory, this);
     category->setPosition(Cacao::anchorPosition(50, -10, 0, 1));
     category->setupItems();
     m_mainLayer->addChild(category);
 }
 
-TLConfigOverlay::~TLConfigOverlay() {
+TLOverlayLayer::~TLOverlayLayer() {
     g_visible = false;
     removeAllChildrenWithCleanup(true);
     cocos2d::CCDirector::sharedDirector()->getTouchDispatcher()->decrementForcePrio(2);

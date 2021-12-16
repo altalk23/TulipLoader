@@ -1,6 +1,6 @@
 #pragma once
-#include <Cacao.hpp>
-#include "ModInfo.hpp"
+#include <Cacao>
+#include <ModInfo.hpp>
 
 class TLModCell : public TableViewCell {
 public:

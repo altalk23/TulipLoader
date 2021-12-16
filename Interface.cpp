@@ -7,6 +7,6 @@ void TLInterface::registerMod(ModContainer* mod) {
     }
 }
 
-TLExtConfigCategory* TLInterface::registerCategory(std::string name) {
+TLCategoryConfig* TLInterface::registerCategory(std::string name) {
     return TLConfigManager::sharedManager()->getCategory(name);
 }

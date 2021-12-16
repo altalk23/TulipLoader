@@ -1,6 +1,6 @@
 #pragma once
-#include <Cacao.hpp>
-#include "innerworkings/ModHasher.hpp"
+#include <Cacao>
+#include <ModHasher.hpp>
 
 class TLModInfo : public cocos2d::CCObject {
 public:

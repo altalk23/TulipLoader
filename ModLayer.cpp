@@ -11,8 +11,6 @@ TLModLayer* TLModLayer::create() {
 }
 
 bool TLModLayer::init() {
-    CAC_TYPEINFO(0x6754b0); // don't question it
-
     m_mods = cocos2d::CCArray::create();
     for (auto& [uuid, mod] : TLManager::sharedManager()->m_mods) {
         m_mods->addObject(new TLModInfo(uuid, mod));
@@ -47,10 +45,10 @@ void TLModLayer::customSetup() {
     // auto nextPos = m_mainLayer->convertToNodeSpace(Cacao::anchorPosition(-24.0, 0.0, 1.0, 1.5));
     // nextMenu->setPosition(nextPos);
 
-    // m_pageLabel = cocos2d::CCLabelBMFont::create(" ", "bigFont.fnt");
- //    m_pageLabel->setAnchorPoint(cocos2d::CCPoint(1.0, 1.0));
- //    m_pageLabel->setPosition(Cacao::anchorPosition(-7.0, -4.0, 1.0, 2.0));
- //    m_mainLayer->addChild(m_pageLabel);
+    m_pageLabel = cocos2d::CCLabelBMFont::create(" ", "bigFont.fnt");
+    m_pageLabel->setAnchorPoint(cocos2d::CCPoint(1.0, 1.0));
+    m_pageLabel->setPosition(Cacao::anchorPosition(-7.0, -4.0, 1.0, 2.0));
+    m_mainLayer->addChild(m_pageLabel);
 
     loadPage(0);
 }

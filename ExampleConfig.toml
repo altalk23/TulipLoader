@@ -1,0 +1,44 @@
+[TulipLoader]
+version = 0.1
+
+[TulipLoader.color]
+primary-light = [240, 120, 240]
+primary-dark = [120, 60, 120]
+secondary-light = [120, 240, 240]
+secondary-dark = [60, 120, 120]
+text-light = [240, 240, 240]
+text-dark = [120, 120, 120]
+
+[mods]
+load-order = [
+    "ToggleTrail"
+]
+
+[mods."ToggleTrail"]
+enabled = true
+
+[categories."ToggleTrail"]
+position = [-150.0, 100.0]
+item-order = [
+    "Enable",
+    "This is much cleaner",
+    "Lily",
+    "Love",
+    "I Love Lily",
+    "this, is, kinda, cool",
+    "uwu",
+]
+
+["ToggleTrail".value]
+"Enable" = true
+"This is much cleaner" = false
+"this, is, kinda, cool" = 2
+
+["ToggleTrail".type]
+"Enable" = 1
+"This is much cleaner" = 1
+"Lily" = 2
+"Love" = 3
+"I Love Lily" = 2
+"this, is, kinda, cool" = 4
+"uwu" = 2

@@ -1,8 +1,8 @@
 #pragma once
-#include <Cacao.hpp>
-#include "Manager.hpp"
-#include "ModInfo.hpp"
-#include "ListLayer.hpp"
+#include <Cacao>
+#include <Manager.hpp>
+#include <ModInfo.hpp>
+#include <ListLayer.hpp>
 
 using cocos2d::SEL_MenuHandler;
 

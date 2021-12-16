@@ -1,11 +1,11 @@
 #pragma once
 #include <vector>
 #include <map>
-#include <Cacao.hpp>
+#include <Cacao>
 #include <dlfcn.h>
 #include <stdlib.h>
-#include "innerworkings/ModHasher.hpp"
-#include "innerworkings/FileTraversal.h"
+#include <ModHasher.hpp>
+#include <FileTraversal.h>
 
 class TLManager {
     public:
